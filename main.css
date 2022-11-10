@@ -133,6 +133,10 @@ li {
 #me {
     font-size: 13px;
     font-weight: 700;
+    background-color: #55555508;
+    border: 3px solid #55555503;
+    border-radius: 25px;
+    padding: 5px;
 }
 
 
