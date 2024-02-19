@@ -96,7 +96,7 @@ page[size="A4"] {
     padding: 10px 2px 5px 2px;
 }
 .page {
-    height: 39.0cm!important;
+    height: 41.0cm!important;
 }
 
 section {
@@ -176,7 +176,7 @@ li {
 }
 
 span {
-    width: 43px;
+    width: 45px;
     text-transform: uppercase;
     color: var(--gray-dark);
 }
