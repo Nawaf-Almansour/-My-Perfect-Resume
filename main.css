@@ -156,6 +156,14 @@ page[size="A4"] {
         overflow: visible !important;
     }
     
+    /* Remove all shadows globally for print */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+    }
+    
     .content {
         display: flex !important;
         height: auto !important;
@@ -196,6 +204,7 @@ page[size="A4"] {
         padding: 8px 12px !important;
         box-shadow: none !important;
         page-break-inside: avoid;
+        border-left: 2px solid var(--primary) !important;
     }
     
     .details h3 {
@@ -216,6 +225,7 @@ page[size="A4"] {
         margin: 10px 0 !important;
         background: rgba(255, 255, 255, 0.15) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: none !important;
     }
     
     #me td {
@@ -237,6 +247,7 @@ page[size="A4"] {
         padding: 12px !important;
         background: rgba(255, 255, 255, 0.1) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: none !important;
     }
     
     .professional-summary p {
@@ -279,6 +290,7 @@ page[size="A4"] {
         padding: 2px 6px !important;
         min-width: 50px !important;
         border: 1px solid rgba(231, 76, 60, 0.3) !important;
+        box-shadow: none !important;
     }
     
     .decorator {
@@ -290,6 +302,7 @@ page[size="A4"] {
         height: 10px !important;
         left: -5px !important;
         top: 3px !important;
+        box-shadow: none !important;
     }
     
     /* Remove hover effects */
@@ -324,6 +337,7 @@ page[size="A4"] {
     .line {
         margin: 8px 0 !important;
         height: 3px !important;
+        box-shadow: none !important;
     }
     
     .line-gray {
