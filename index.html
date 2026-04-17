@@ -16,8 +16,16 @@
     <!-- Print Instructions: Use Ctrl+P (Cmd+P on Mac), select A4 paper size, enable background graphics -->
 </head>
 <body lang="en">
+<div class="bg-effects">
+    <div class="bg-particles bg-particles--1"></div>
+    <div class="bg-particles bg-particles--2"></div>
+    <div class="bg-blob bg-blob--1"></div>
+    <div class="bg-blob bg-blob--2"></div>
+    <div class="bg-blob bg-blob--3"></div>
+    <div class="bg-pulse"></div>
+</div>
 <svg id="#svg-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#0099ff" fill-opacity="1"
+    <path fill="#C0392B" fill-opacity="1"
           d="M0,192L80,208C160,224,320,256,480,229.3C640,203,800,117,960,112C1120,107,1280,181,1360,218.7L1440,256L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
 </svg>
 <page class="page" size="A4">
@@ -226,6 +234,44 @@
         '.exp-card, .main-block .title, .container-right article'
     );
     targets.forEach((el) => observer.observe(el));
+})();
+</script>
+<script>
+(function () {
+    const root = document.documentElement;
+
+    /* ── Mouse parallax ──────────────────────────── */
+    let mx = 0, my = 0, tx = 0, ty = 0;
+
+    document.addEventListener('mousemove', function (e) {
+        tx = (e.clientX / window.innerWidth  - 0.5) * 2;
+        ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    /* ── Scroll parallax ─────────────────────────── */
+    let sy = 0;
+    window.addEventListener('scroll', function () {
+        sy = window.scrollY / (document.body.scrollHeight - window.innerHeight || 1);
+    }, { passive: true });
+
+    /* ── Smooth RAF loop ─────────────────────────── */
+    function tick() {
+        mx += (tx - mx) * 0.08;
+        my += (ty - my) * 0.08;
+
+        root.style.setProperty('--mx', mx.toFixed(4));
+        root.style.setProperty('--my', my.toFixed(4));
+        root.style.setProperty('--sy', (sy * 1000).toFixed(2));
+
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    /* ── Reset on mouse leave ────────────────────── */
+    document.addEventListener('mouseleave', function () {
+        tx = 0;
+        ty = 0;
+    });
 })();
 </script>
 </body>
